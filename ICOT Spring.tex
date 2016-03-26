@@ -15,6 +15,9 @@ Rate of code: $\mathbf{R=\frac{k}{n}}$ where k is encoded information and n is t
 Amount of bit flips that can be corrected using repetition code: $\mathbf{t = \frac{(n-1)}{2}}$\\\\
 Error correction distance: $\mathbf{t=\lfloor\frac{d-1}{2}\rfloor}$\\\\
 Average bits per symbol: $\mathbf{\sum p(x)l(x)}$\\\\
-Differential entropy (Used for finding compression overhead for wrong codes):$\mathbf{D(p||q)=\sum p(x)log_2\frac{p(x)}{q(x)}}$\\\
+Differential entropy (Used for finding compression overhead for wrong codes):$\mathbf{D(p||q)=\sum p(x)log_2\frac{p(x)}{q(x)}}$\\\\
+% Probability of having an error string with k bit-flips: $\mathbf{p^k =(1-p)^{n-k}}$\\\\
+%Number of error strings with k bit-flips: $\mathbf{{n\choose b} = \frac{n!}{k!(n-k)!}}$\\\\
+Probability of code error (having more than t bit-flips):\\ $\mathbf{P_{err}(n,p) = \sum\limits_{k=t+1}^{n}{n\choose k}p^k(1-p)^{n-k}}$\\\\
 
 \end{document}
