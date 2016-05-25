@@ -22,7 +22,8 @@ Expectation of a discrete random variable: $\mathbf{E[X] = \sum\limits_{i}^{} x_
 Variance of a random variable: $\mathbf{Var(X) = E[(X-E[X])^2]}$\\\\
 Covariance: $\mathbf{Cov(X,Y) = E[(X-E[X])(Y-E[Y])]}$\\\\
 Gamma function: $\mathbf{\Gamma (N+1) = N!}$\\\\
-Quadratic Formula: $\mathbf{x = \frac{-b\pm\sqrt{b^2 - 4ac}}{2a}}$
+Quadratic Formula: $\mathbf{x = \frac{-b\pm\sqrt{b^2 - 4ac}}{2a}}$\\\\
+Multiplication of Matrices with varying dimensions: $\mathbf{X^TU=U^TX}$ 
 \section{Distributions}
 Binomial Distribution: $\mathbf{p(X = k|N,\theta) = \frac{N!}{k!(N-k)!}\theta^k(1-\theta)^{N-k}}$\\\\
 Normal (Gaussian) Distribution: $\mathbf{p(X = x) = \frac{1}{\sqrt{2\pi \sigma ^2}} e^{-\frac{(x-\mu )^2}{2\sigma ^2}}}$\\\\
@@ -31,12 +32,38 @@ Beta normalisation constant: $\mathbf{B(\alpha,\beta) = \frac{\Gamma(\alpha)\Gam
 Beta-Binomial Distribution: $\mathbf{p(c|\alpha,\beta) = \frac{N!}{c_1!c_2!}\frac{B(c_1 + \alpha, c_2 + \beta)}{B(\alpha,\beta)}}$\\\\
 Multinomial Distribution: $\mathbf{p(c|\theta) = \frac{C!}{\prod_{i}^{}c_i!}\prod_{i}^{}\theta^{c_i}}$\\\\
 Dirichlet Distribution: $\mathbf{p(\theta|\alpha) = \frac{\Gamma(A)}{\prod_{i}^{}\Gamma(\alpha_i)}\prod_{i}^{}\theta_i^{\alpha_i-1}}$\\\\
-Dirichlet-Multinomial Distribution: $\mathbf{p(c|\alpha) = \frac{C!}{\prod_{i}^{}c_i!}\frac{\Gamma(A)}{\prod_{i}^{}\Gamma(\alpha_i)}\frac{\prod_{i}^{}\Gamma(c_i+\alpha_i)}{\Gamma(C+A)}}$
+Dirichlet-Multinomial Distribution: $\mathbf{p(c|\alpha) = \frac{C!}{\prod_{i}^{}c_i!}\frac{\Gamma(A)}{\prod_{i}^{}\Gamma(\alpha_i)}\frac{\prod_{i}^{}\Gamma(c_i+\alpha_i)}{\Gamma(C+A)}}$\\\\
+Poisson Distribution: $\mathbf{P(X=x)=\frac{\lambda^xe^{-\lambda}}{x!}}$
 \section{Regression}
 Sigmoid Function: $\mathbf{\frac{1}{1+e^{-x}}}$\\\\
-Multi-Class sigmoid: $\mathbf{\frac{e^{X\theta_i}}{\sum_{j}^{}e^{X\theta_j}}}$
+Multi-Class sigmoid: $\mathbf{p(y=i|X)=\frac{e^{X\theta_i}}{\sum_{j}^{}e^{X\theta_j}}}$\\\\
+Regularisation Prior: $\mathbf{e^{-\frac{(1-\lambda)}{\lambda}\sum_i|\theta_i|^P}}$
 \section{Manifold Learning}
-MDS Kernel: $\mathbf{K=-\frac{1}{2}(I-\frac{J}{n})D(I-\frac{J}{n})}$
+Kernel relation to X (inner product):$\mathbf{K = X^TX}$\\\\
+MDS Kernel: $\mathbf{K=-\frac{1}{2}(I-\frac{J}{n})D(I-\frac{J}{n})}$\\\\
+Eigen Decomposition Formulas: $\mathbf{|A-\lambda I|=0}$\\\\
+$\mathbf{Ax=\lambda X}$\\\\
+$\mathbf{A=U\Lambda U^T}$\\\\
+Metric Conditions:
+\begin{itemize}
+	\item $D_{ij}\leq0$ (nonnegativity)
+	\item $D_{ij} = 0$ iff i=j 
+	\item $D_{ij} = D_{ji}$ (symmetry)
+	\item $D_{ij}\leq D_{ik}+D_{kj}$ (triangle inequality)
+\end{itemize}
+\begin{itemize}
+	\item Resolve non-symmetry by taking an average of both points and putting that in the respective places in the matrix.
+	\item Triangle violations can be resolved by applying a constant offset to one of the points
+	\item Discard negative eigenvalues (clipping) to resolve euclidian violations (no this for noise)
+	\item Reverse the sign of the negative eigen values also does this 
+\end{itemize}
+Kernerl functions must satisfy:
+\begin{itemize}
+	\item $K(x,y) = K(y,x)$ (Symmetry)
+	\item $K(x,y)^2 \leq K(x,x)K(y,y)$ (Cauchy-Schwarz Inequality)
+	\item K must be positive semi-definite (Mercer Criterion)
+\end{itemize}
+
 
 \end{document}
 
